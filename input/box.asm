@@ -1,9 +1,9 @@
 
 // Capstone Project - Part C
 // Student K = 37
-// Box starts at row 37
+// Box starts at row 37 (SCREEN + 32*37 = 17568)
 // Height = 20 rows
-// Width = 16 pixels (one screen word)
+// Width = 16 * ((37 mod 4) + 1) = 32 pixels (2 screen words)
 
 // Continuously check keyboard
 (START)
@@ -30,6 +30,10 @@
 (DRAW_LOOP)
     @address
     A=M
+    M=-1
+
+    @address
+    A=M+1
     M=-1
 
     @address
@@ -62,6 +66,10 @@
 (CLEAR_LOOP)
     @address
     A=M
+    M=0
+
+    @address
+    A=M+1
     M=0
 
     @address

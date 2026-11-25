@@ -27,20 +27,6 @@ def create_symbol_table():
 
 def is_valid_symbol(name):
     return re.fullmatch(r"[A-Za-z_.$:][A-Za-z0-9_.$:]*", name) is not None
-    symbols = {
-        "SP": 0,
-        "LCL": 1,
-        "ARG": 2,
-        "THIS": 3,
-        "THAT": 4,
-        "SCREEN": 16384,
-        "KBD": 24576
-    }
-
-    for i in range(16):
-        symbols["R" + str(i)] = i
-
-    return symbols
 
 
 # Remove comments and blank lines
@@ -261,12 +247,13 @@ def assemble_file(filename):
     print("Machine instructions:", len(machine_code))
 
 
-# Main programzos
+# Main program
+# Student K = 37 (K mod 3 = 1: report line-numbered errors without crashing)
 if __name__ == "__main__":
 
-    print("Hack Assembler Started!")
+    print("Hack Assembler Started! (K = 37)")
 
-    files = ["box.asm"]
+    files = ["Add.asm", "Max.asm", "Rect.asm", "Pong.asm", "box.asm", "test_err.asm"]
 
     for filename in files:
         try:
